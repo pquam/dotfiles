@@ -21,7 +21,7 @@ boot.loader.efi.canTouchEfiVariables = true;
   };
 
   # edit as per your location and timezone
-  time.timeZone = "America/Los_Angles";
+  time.timeZone = "America/Los_Angeles";
   i18n = {
     defaultLocale = "en_US.UTF-8";
     extraLocaleSettings = {
@@ -103,6 +103,7 @@ boot.loader.efi.canTouchEfiVariables = true;
     google-chrome
     vscode
     discord
+    feh
   ];
 
   programs.nix-ld.enable = true;
