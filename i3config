@@ -56,7 +56,7 @@ bindsym $mod+q kill
 # bindsym $mod+p exec --no-startup-id "~/.config/rofi/powermenu/type-1/powermenu.sh"
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+#bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
 #bindcode $mod+40 exec "rofi -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a 
@@ -182,9 +182,15 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # exec_always --no-startup-id nitrogen --set-zoom-fill --random ~/Pictures/Wallpapers/
-exec_always --no-startup-id feh --bg-fill /home/patrickq/.background-image
+# set background image using feh
+exec_always --no-startup-id feh --bg-fill ~/dotfiles/.background-image
 
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+#exec standard applications
+exec discord
+exec google_chrome_stable
+exec bash
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -216,4 +222,3 @@ default_floating_border pixel 3
 gaps inner 6
 
 for_window [title="Application Finder"] floating enable resize set 640 480
-for_window [title="Nitrogen"] floating enable resize set 640 480
