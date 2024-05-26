@@ -85,7 +85,7 @@ boot.loader.efi.canTouchEfiVariables = true;
   };
 
  
-  users.users.patrickq = {
+  users.users.pquam = {
     isNormalUser = true;
     description = "Patrick Quam";
     extraGroups = [ "networkmanager" "wheel" ];
