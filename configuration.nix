@@ -98,20 +98,51 @@ boot.loader.efi.canTouchEfiVariables = true;
     gh
     python3
     vim
+    chromium
     unzip
     dmenu
-    google-chrome
     vscode
     discord
     feh
     rofi
+
+    ##these are for proton
+    vulkan-tools
+    libva
+    libvdpau
+    libXinerama
+    libXcursor
+    libXi
+    libXtst
   ];
+
+  let
+    unstable = import<nixos-unstable> { };
+  in {
+    environment.systemPackages = with pkgs; [
+	unstable.chromium
+	unstable.wine
+	steam
+    ];
+  }
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  }
+
+  hardware.opengl.driSupport = true;
+  hardware.opengl.driSupport32Bit = true;
+
+  hardware.pulseaudio.support32Bit = true
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
-    google-chrome
+    chromium
     vscode
     discord
+    steam
 ];
 
   systemd = {
