@@ -104,6 +104,7 @@ boot.loader.efi.canTouchEfiVariables = true;
     vscode
     discord
     feh
+    rofi
   ];
 
   programs.nix-ld.enable = true;
