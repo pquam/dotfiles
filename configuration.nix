@@ -99,6 +99,8 @@ boot.loader.efi.canTouchEfiVariables = true;
     python3
     vim
     chromium
+    wine
+    steam
     unzip
     dmenu
     vscode
@@ -109,33 +111,22 @@ boot.loader.efi.canTouchEfiVariables = true;
     ##these are for proton
     vulkan-tools
     libva
-    libvdpau
-    libXinerama
-    libXcursor
-    libXi
-    libXtst
+    ##libvdpau
+    ##libXcursor
+    ##libXi
+    ##libXtst
   ];
-
-  let
-    unstable = import<nixos-unstable> { };
-  in {
-    environment.systemPackages = with pkgs; [
-	unstable.chromium
-	unstable.wine
-	steam
-    ];
-  }
 
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
-  }
+  };
 
   hardware.opengl.driSupport = true;
   hardware.opengl.driSupport32Bit = true;
 
-  hardware.pulseaudio.support32Bit = true
+  hardware.pulseaudio.support32Bit = true;
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
