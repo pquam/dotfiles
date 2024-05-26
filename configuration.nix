@@ -77,6 +77,16 @@ boot.loader.efi.canTouchEfiVariables = true;
     };
   };
 
+  ##nvidia config
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.production;
+  services.xserver.videoDrivers = [ "nvidia" ];
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+    open = false;
+    nvidiaSettings = true;
+  };
+
   nixpkgs = {
     config = {
       allowUnfree = true;
