@@ -4,7 +4,7 @@
 
   imports = [
     /etc/nixos/hardware-configuration.nix
-    ~/dotfiles/nvidia.nix
+    /home/pquam/dotfiles/nvidia.nix
   ];
 
   # paste your boot config here...
