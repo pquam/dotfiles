@@ -4,6 +4,7 @@
 
   imports = [
     /etc/nixos/hardware-configuration.nix
+    ~/dotfiles/nvidia.nix
   ];
 
   # paste your boot config here...
@@ -75,16 +76,6 @@ boot.loader.efi.canTouchEfiVariables = true;
       };
       pulse.enable = true;
     };
-  };
-
-  ##nvidia config
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.production;
-  services.xserver.videoDrivers = [ "nvidia" ];
-
-  hardware.nvidia = {
-    modesetting.enable = true;
-    open = false;
-    nvidiaSettings = true;
   };
 
   nixpkgs = {
