@@ -108,13 +108,17 @@ boot.loader.efi.canTouchEfiVariables = true;
     gh
     python3
     vim
-    chromium
+    google-chrome
     wine
     steam
     unzip
     dmenu
     vscode
     discord
+    vlc
+    obs-studio
+    shotcut
+    streamdeck-ui
     feh
     rofi
 
@@ -122,7 +126,7 @@ boot.loader.efi.canTouchEfiVariables = true;
     vulkan-tools
     libva
     ##libvdpau
-    ##libXcursor
+    ##libXcursor\
     ##libXi
     ##libXtst
   ];
@@ -140,7 +144,7 @@ boot.loader.efi.canTouchEfiVariables = true;
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
-    chromium
+    google-chrome
     vscode
     discord
     steam
