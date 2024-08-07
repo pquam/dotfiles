@@ -5,6 +5,8 @@
   imports = [
     /etc/nixos/hardware-configuration.nix
     /home/pquam/dotfiles/nvidia.nix
+   #/home/pquam/dotfiles/flutterbase.nix
+   #/home/pquam/dotfiles/reverse-engineering.nix
   ];
 
   # paste your boot config here...
@@ -93,6 +95,8 @@ boot.loader.efi.canTouchEfiVariables = true;
     packages = with pkgs; [
     ];
   };
+
+  nix.settings.experimental-features = ["nix-command" "flakes" ];
 
   environment.systemPackages = with pkgs; [
     git
