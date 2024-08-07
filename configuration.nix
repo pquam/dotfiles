@@ -84,6 +84,7 @@ boot.loader.efi.canTouchEfiVariables = true;
     };
   };
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
  
   users.users.patrickq = {
     isNormalUser = true;
