@@ -116,6 +116,7 @@ boot.loader.efi.canTouchEfiVariables = true;
     streamdeck-ui
     feh
     rofi
+    i3lock-fancy
 
     ##these are for proton
     vulkan-tools
