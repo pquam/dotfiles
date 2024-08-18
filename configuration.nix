@@ -4,6 +4,7 @@
 
   imports = [
     /etc/nixos/hardware-configuration.nix
+    /home/patrickq/dotfiles/intel.nix
   ];
 
   # paste your boot config here...
@@ -106,6 +107,8 @@ boot.loader.efi.canTouchEfiVariables = true;
     discord
     feh
     rofi
+    i3lock-fancy
+    android-studio
   ];
 
   programs.nix-ld.enable = true;
@@ -114,6 +117,9 @@ boot.loader.efi.canTouchEfiVariables = true;
     vscode
     discord
 ];
+
+hardware.opengl.driSupport = true;
+hardware.opengl.driSupport32Bit = true;
 
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {
