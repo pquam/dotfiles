@@ -36,29 +36,29 @@ order += "tztime localdate"
 order += "tztime localtime"
 
 volume master {
-        format = "<span color='#8E44AD' size='large'> %volume </span>"
-        format_muted = "<span color='#D32F2F'> %volume </span>"
+        format = "<span color='#8E44AD' size='large'>%volume</span>"
+        format_muted = "<span color='#D32F2F'>%volume</span>"
         device = "default"
         mixer = "Master"
         mixer_idx = 0
 }
 
 wireless _first_ {
-	format_up = "<span color='#8E44AD' size='large'> wifi:%quality </span>"
+	format_up = "<span color='#8E44AD' size='large'>wifi:%quality</span>"
 
 }
 
 ethernet _first_ {
-        format_up = "<span color='#8E44AD' size='large'> %ip </span>"
+        format_up = "<span color='#8E44AD' size='large'>ETH: %ip @ %speed</span>"
         format_down = "<span color='#8E44AD' size='large'>:c </span>"
 }
 
 
 battery 1 {
-        format = "<span color='#8E44AD' size='large'> %status %percentage </span>"
+        format = "<span color='#8E44AD' size='large'>%status %percentage</span>"
         format_down = "No battery"
         status_chr = "⚡ CHR"
-        status_bat = "🔋 BAT"
+        status_bat = "BAT:"
         status_unk = "? UNK"
         status_full = "☻ FULL"
         path = "/sys/class/power_supply/BAT1/uevent"
@@ -66,45 +66,34 @@ battery 1 {
 }
 
 cpu_temperature 0 {
-	format = "<span color='#8E44AD' size='large'>%degrees °C </span>"
+	format = "<span color='#8E44AD' size='large'>%degrees °C</span>"
         path = "/sys/class/hwmon/hwmon4/temp1_input"
 }
 
 
 
 disk "/" {
-        format = "<span color='#8E44AD' size='large'> Disk: %avail </span>"
+        format = "<span color='#8E44AD' size='large'>Disk: %avail</span>"
         prefix_type = custom
 }
 
 memory {
-        format = "<span color='#8E44AD' size='large'> Mem: %used | %total </span>"
+        format = "<span color='#8E44AD' size='large'>Mem: %used / %total</span>"
         threshold_degraded = "10%"
         format_degraded = "MEMORY: %free"
 }
 
 
 tztime localdate {
-        format = "<span color='#8E44AD' size='large'> %a %d-%m-%y </span>"
+        format = "<span color='#8E44AD' size='large'> %a %d-%m-%y</span>"
 }
 
 
 tztime localtime {
-        format = "<span color='#8E44AD' size='large'> %I:%M %p </span>"
+        format = "<span color='#8E44AD' size='large'>%I:%M %p </span>"
 }
 
-
-run_watch DHCP {
-        pidfile = "/var/run/dhclient*.pid"
-}
-
-
-ethernet eth0 {
-        # if you use %speed, i3status requires root privileges
-        format_up = " eth0:  %ip "
-        format_down = "  "
-}
 
 cpu_usage {
-	format = "<span color='#8E44AD' size='large'> CPU: %usage @</span>"
+	format = "<span color='#8E44AD' size='large'>CPU: %usage @</span>"
 }
