@@ -140,7 +140,7 @@ set $ws19 "20"
 # Assign applications to workspaces
 assign [class="discord"] $ws13
 assign [class="steam"] $ws3
-
+assign [class="tf_linux64"] $ws3
 
 
 # Set 0x workspaces to left monitor, 1x workspaces to right monitor
@@ -273,7 +273,7 @@ bar {
         status_command i3status -c ~/dotfiles/i3statusconfig
         position top
         font pango:DejaVu Sans Mono 10
-        separator_symbol "  "
+        separator_symbol " "
         colors {
                 background #333333
                 statusline #ffffff
