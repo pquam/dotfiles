@@ -13,6 +13,8 @@
 boot.loader.systemd-boot.enable = true;
 boot.loader.efi.canTouchEfiVariables = true;
 
+system.autoUpgrade.enable  = true;
+
   networking = {
     firewall = {
       enable = true;
@@ -105,7 +107,9 @@ boot.loader.efi.canTouchEfiVariables = true;
     vim
     google-chrome
     wine
+    obsidian
     steam
+    dolphin-emu
     unzip
     dmenu
     vscode
@@ -127,11 +131,31 @@ boot.loader.efi.canTouchEfiVariables = true;
     ##libXtst
   ];
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-25.9.0"
+  ];
+
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
   };
+
+##Gamecube controller
+services.udev.packages = [
+  pkgs.dolphinEmu
+  (pkgs.writeTextFile {
+    name = "99-nintendo-controller.rules";
+    text = ''
+      SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", \
+      ATTRS{idVendor}=="057e", ATTRS{idProduct}=="0337", \
+      MODE="0666";
+    '';
+    destination = "/etc/udev/rules.d/40-nintendo-controller.rules";
+  })
+];
+
+
 
   hardware.opengl.driSupport = true;
   hardware.opengl.driSupport32Bit = true;
