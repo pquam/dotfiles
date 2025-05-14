@@ -62,6 +62,8 @@ boot.loader.efi.canTouchEfiVariables = true;
       };
       displayManager = {
         lightdm.enable = true;
+	lightdm.greeters.enso.enable = true;
+	lightdm.background = /home/pquam/Pictures/background.png;
         defaultSession = "xfce+i3";
       };
     };
