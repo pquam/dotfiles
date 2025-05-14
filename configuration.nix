@@ -4,7 +4,7 @@
 
   imports = [
     /etc/nixos/hardware-configuration.nix
-    /home/patrickq/dotfiles/intel.nix
+    /home/pquam/dotfiles/intel.nix
   ];
 
   # paste your boot config here...
@@ -39,7 +39,7 @@ boot.loader.efi.canTouchEfiVariables = true;
     };
   };
 
-  sound.enable = true;
+ # sound.enable = true;
 
   services = {
     xserver = {
@@ -87,7 +87,7 @@ boot.loader.efi.canTouchEfiVariables = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
  
-  users.users.patrickq = {
+  users.users.pquam = {
     isNormalUser = true;
     description = "Patrick Quam";
     extraGroups = [ "networkmanager" "wheel" ];
@@ -108,7 +108,11 @@ boot.loader.efi.canTouchEfiVariables = true;
     feh
     rofi
     i3lock-fancy
-    android-studio
+    obsidian
+    gimp
+    vlc
+    wine
+    protonplus
   ];
 
   programs.nix-ld.enable = true;
@@ -118,8 +122,8 @@ boot.loader.efi.canTouchEfiVariables = true;
     discord
 ];
 
-hardware.opengl.driSupport = true;
-hardware.opengl.driSupport32Bit = true;
+#hardware.opengl.driSupport = true;
+#hardware.opengl.driSupport32Bit = true;
 
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {
