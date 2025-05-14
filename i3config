@@ -188,7 +188,7 @@ bindsym $mod+r mode "resize"
 # exec_always --no-startup-id nitrogen --set-zoom-fill --random ~/Pictures/Wallpapers/
 # set background image using feh
 exec_always --no-startup-id feh --bg-fill ~/dotfiles/.background-image
-
+exec_always --no-startup-id picom --config ~/dotfiles/picom.conf
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 #exec standard applications

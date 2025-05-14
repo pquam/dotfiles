@@ -113,6 +113,7 @@ boot.loader.efi.canTouchEfiVariables = true;
     vlc
     wine
     protonplus
+    picom
   ];
 
   programs.nix-ld.enable = true;
