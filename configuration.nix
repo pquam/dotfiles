@@ -14,6 +14,8 @@ boot.loader.systemd-boot.enable = true;
 boot.loader.efi.canTouchEfiVariables = true;
 
 system.autoUpgrade.enable  = true;
+system.autoUpgrade.allowReboot = true;
+system.autoUpgrade.channel = "https://channels.nixos.org/nixos-25.05";
 
   networking = {
     firewall = {
@@ -107,6 +109,7 @@ system.autoUpgrade.enable  = true;
     vim
     google-chrome
     wine
+    pulseaudioFull
     obsidian
     steam
     dolphin-emu
@@ -124,11 +127,25 @@ system.autoUpgrade.enable  = true;
 
     ##these are for proton
     vulkan-tools
+    vulkan-loader
     libva
     ##libvdpau
     ##libXcursor\
     ##libXi
     ##libXtst
+  ];
+
+#enables blueray playback in VLC along with a ~/.configuration/aacs/KEYDB.cfg file
+  nixpkgs.overlays = [
+    (
+      self: super: {
+        libbluray = super.libbluray.override {
+          withAACS = true;
+          withBDplus = true;
+          withJava = true;
+        };
+      }
+    )
   ];
 
   nixpkgs.config.permittedInsecurePackages = [

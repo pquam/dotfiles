@@ -3,10 +3,10 @@
 {
   ###nvidia config
 
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.production;
   services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
     modesetting.enable = true;
     open = false;
     nvidiaSettings = true;
