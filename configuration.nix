@@ -116,6 +116,7 @@ boot.loader.efi.canTouchEfiVariables = true;
     wine
     protonplus
     picom
+    gnumake
   ];
 
   programs.nix-ld.enable = true;
@@ -142,6 +143,15 @@ boot.loader.efi.canTouchEfiVariables = true;
         RestartSec = 1;
         TimeoutStopSec = 10;
       };
+    };
+  };
+
+  systemd.services.lock-on-suspend = {
+    wantedBy = [ "sleep.target" ];
+    before = [ "sleep.target" ];
+    serviceConfig = {
+      type = "forking";
+      ExecStart = "${pkgs.i3lock-fancy}/bin/i3lock-fancy";
     };
   };
   
